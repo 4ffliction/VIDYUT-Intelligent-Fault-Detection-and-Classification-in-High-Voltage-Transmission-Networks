@@ -7,7 +7,7 @@ VIDYUT explores a hybrid learning architecture that integrates:
 
 - **Random Forest (RF):** Uses engineered electrical signal features, including RMS, standard deviation, peak-to-peak amplitude, and maximum absolute amplitude, to capture fault-related characteristics.
 - **1D Convolutional Neural Network (CNN):** Learns temporal patterns directly from multichannel voltage and current waveforms.
-- **Hybrid CNN–RF Framework:** Combines learned temporal representations with engineered electrical features to investigate complementary feature learning and classification performance.
+- **Hybrid CNN-RF Framework:** Combines learned temporal representations with engineered electrical features to investigate complementary feature learning and classification performance.
 
 ### Key Technical Components
 
@@ -22,4 +22,4 @@ VIDYUT explores a hybrid learning architecture that integrates:
 
 The primary objective of VIDYUT is to investigate reliable, data-driven fault identification in high-voltage transmission networks through the integration of electrical signal characteristics and machine learning techniques.
 
-**VIDYUT — Bringing intelligence to power system protection.**
+**VIDYUT - Bringing intelligence to power system protection.**
