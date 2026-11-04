@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Dataset and generated waveform data
+data/raw/
+data/processed/
+data/extracted/
+*.pkl
+*.npy
+*.npz
+*.h5
+*.hdf5
+
+# Large archives
+*.zip
+*.7z
+*.tar
+*.gz
+
+# Model checkpoints
+*.pt
+*.pth
+*.pkl
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Secrets
+.env
+.env.*
