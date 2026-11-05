@@ -1,0 +1,382 @@
+{
+  "dataset": {
+    "name": "PROTECT-90",
+    "source": "Zenodo record 21109169",
+    "doi": "10.5281/zenodo.21109169",
+    "concept_doi": "10.5281/zenodo.18418329",
+    "alt_record_v0_1_0": 18418330,
+    "version": "1.0.0",
+    "license": "CC BY 4.0",
+    "local_archive": "hv_double_line_90kv_preprocessed_data.zip",
+    "archive_status": "INCOMPLETE - truncated partial download",
+    "archive_members_present": 2812,
+    "archive_members_expected": 9022,
+    "archive_size_local_bytes": 3763339264,
+    "archive_size_expected_bytes": 12046677098,
+    "archive_size_ratio_percent": 31.2,
+    "archive_md5_local": null,
+    "archive_md5_zenodo": "7cf176f169299b825ba6a6be102edca8",
+    "archive_md5_match": false,
+    "zip_opens_with_python_zipfile": false,
+    "central_directory_present": false,
+    "eocd_present": false,
+    "note": "Local ZIP is a truncated partial download (31.2% of expected size). No central directory or EOCD. Python zipfile cannot open it. Manual local-header parsing extracts 2812 files but 6210 are missing entirely from the archive."
+  },
+  "metadata": {
+    "csv_path": "hv_double_line_90kv_labels.csv",
+    "shape": [
+      9022,
+      49
+    ],
+    "sample_id_column": "sample_id",
+    "label_column": "sc_type",
+    "fault_class_mapping": {
+      "0": "LLL",
+      "1": "LL",
+      "2": "SLG",
+      "3": "LLG"
+    },
+    "class_counts": {
+      "LLL": 2273,
+      "LL": 2251,
+      "SLG": 2279,
+      "LLG": 2219
+    },
+    "class_percentages": {
+      "LLL": 25.19,
+      "LL": 24.95,
+      "SLG": 25.26,
+      "LLG": 24.6
+    },
+    "fault_target_column": "fault_target",
+    "fault_target_counts": {
+      "Line_1_2_a": 3191,
+      "Line_2_3_a": 3165,
+      "Line_2_3_b": 1338,
+      "Line_1_2_b": 1328
+    },
+    "t_start_column": "t_evnt_start",
+    "t_end_column": "t_evnt_end",
+    "duration_stats": {
+      "min_samples": 0.0766,
+      "max_samples": 3802.35,
+      "mean_samples": 1448.56,
+      "median_samples": 1397.46,
+      "min_ms": 0.12,
+      "max_ms": 594.12,
+      "mean_ms": 226.34,
+      "median_ms": 218.35
+    }
+  },
+  "waveform": {
+    "sampling_frequency_hz": 6400,
+    "samples_per_episode": 6400,
+    "episode_duration_s": 1.0,
+    "samples_per_cycle": 128,
+    "cycle_duration_ms": 20.0,
+    "time_column": "time_s",
+    "n_channels": 48,
+    "n_locations": 8,
+    "channels_per_location": 6,
+    "channel_naming": "{location}_{cur|vol}_L{phase}_{A|V}",
+    "locations": [
+      "Bus_1_Line_01_02A",
+      "Bus_1_Line_01_02B",
+      "Bus_2_Line_01_02A",
+      "Bus_2_Line_01_02B",
+      "Bus_2_Line_02_03A",
+      "Bus_2_Line_02_03B",
+      "Bus_3_Line_02_03A",
+      "Bus_3_Line_02_03B"
+    ]
+  },
+  "short_duration_events": {
+    "threshold_samples": {
+      "< 1 sample (0.156 ms)": 5,
+      "< 2 samples (0.312 ms)": 7,
+      "< 128 samples (20 ms, 1 cycle)": 404,
+      "< 256 samples (40 ms, 2 cycles)": 828
+    },
+    "short_event_class_distribution_128_samples": {
+      "LLL": 108,
+      "LL": 85,
+      "SLG": 95,
+      "LLG": 116
+    },
+    "short_event_class_distribution_256_samples": {
+      "LLL": 207,
+      "LL": 206,
+      "SLG": 191,
+      "LLG": 224
+    },
+    "note": "All 404 short-duration episodes (< 128 samples) are missing from available waveforms."
+  },
+  "availability": {
+    "total_metadata_episodes": 9022,
+    "waveform_files_available": 7,
+    "matched_ids": 7,
+    "missing_ids": 9015,
+    "unexpected_ids": 0,
+    "availability_percent": 0.078,
+    "available_sample_ids": [
+      0,
+      1000,
+      1001,
+      1002,
+      1287,
+      1807,
+      2338
+    ]
+  },
+  "preprocessing_pipeline": {
+    "split_ratios": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15
+    },
+    "random_seed": 42,
+    "stratify_by": "sc_type",
+    "window_length_samples": 256,
+    "window_length_ms": 40.0,
+    "fault_alignment": "post_inception",
+    "alignment_description": "Window starts at t_evnt_start sample index, clamped to episode bounds. If fault is near episode end, window shifts back to fit.",
+    "normalization": {
+      "method": "z_score",
+      "fit_on": "training_data_only",
+      "per_channel": true,
+      "description": "Subtract training mean, divide by training std for each channel independently"
+    },
+    "channel_selection": {
+      "strategy": "single_location",
+      "location": "Bus_1_Line_01_02A",
+      "channels": [
+        "Bus_1_Line_01_02A_vol_L1_V",
+        "Bus_1_Line_01_02A_vol_L2_V",
+        "Bus_1_Line_01_02A_vol_L3_V",
+        "Bus_1_Line_01_02A_cur_L1_A",
+        "Bus_1_Line_01_02A_cur_L2_A",
+        "Bus_1_Line_01_02A_cur_L3_A"
+      ],
+      "n_channels_selected": 6,
+      "rationale": "Single location provides 6 synchronized channels (3-phase V + I). All 8 locations have identical fault signatures at 6400 Hz. Using one location reduces input dimensionality by 8x while preserving fault information."
+    },
+    "short_event_handling": {
+      "policy": "include_with_clamped_window",
+      "description": "Episodes with fault duration < window_length are NOT excluded. Window position is clamped to episode bounds. If fault is near episode end, window shifts back to fit within episode. Fault may not be fully captured in window.",
+      "no_silent_exclusion": true,
+      "diagnosis_fields": [
+        "fault_during_window",
+        "fault_start_in_window",
+        "fault_end_in_window"
+      ]
+    },
+    "split_method": {
+      "strategy": "two_stage_stratified",
+      "stage_1": "70% train vs 30% temp",
+      "stage_2": "50% val vs 50% test from temp = 15% each",
+      "stratify_column": "sc_type",
+      "random_seed": 42
+    }
+  },
+  "data_quality_verified": {
+    "missing_metadata": false,
+    "duplicate_sample_ids": false,
+    "invalid_timing": false,
+    "invalid_sc_type": false,
+    "invalid_phase_select": false,
+    "invalid_fault_target": false,
+    "nan_in_waveforms": false,
+    "inf_in_waveforms": false,
+    "note": "Verified for inspected subset. Full archive integrity not verified due to incomplete local ZIP."
+  },
+  "pipeline_validation": {
+    "date": "2026-11-02",
+    "status": "VALID - readiness blocked by data availability, not pipeline correctness",
+    "bugs_fixed": [
+      {
+        "id": 1,
+        "description": "Fragile channel index calculation using col_idx - 1 offset",
+        "fix": "Use direct column name lookup from pre-built map"
+      },
+      {
+        "id": 2,
+        "description": "Missing import json in module scope",
+        "fix": "Added import json at top of file"
+      },
+      {
+        "id": 3,
+        "description": "No handling of missing channels in selected_channels list",
+        "fix": "Added explicit check with warning and zero-fill"
+      }
+    ],
+    "checks_passed": [
+      "Fault label mapping (sc_type -> 0-3 labels)",
+      "Episode-wise splitting before window extraction",
+      "No overlapping-window leakage between splits",
+      "Train-only normalization",
+      "Correct timestamp alignment",
+      "Correct channel selection after fix",
+      "Short-duration event handling (no silent exclusion)",
+      "Fixed random seed for reproducibility",
+      "Correct output dimensions and dtypes"
+    ]
+  },
+  "dataset_verified": {
+    "archive_file": "hv_double_line_90kv_preprocessed_data.zip",
+    "archive_size_bytes": 12046677098,
+    "expected_size_bytes": 12046677098,
+    "size_match": true,
+    "md5_computed": "7cf176f169299b825ba6a6be102edca8",
+    "expected_md5": "7cf176f169299b825ba6a6be102edca8",
+    "md5_match": true,
+    "archive_members": 9022,
+    "zipfile_testzip_result": null,
+    "zip_integrity_pass": true,
+    "extracted_dir": "hv_double_line_90kv_preprocessed_data_extracted",
+    "extracted_pkl_count": 9022,
+    "labels_csv": "hv_double_line_90kv_labels.csv",
+    "labels_rows": 9022,
+    "label_match": true,
+    "waveform_shape": [
+      6400,
+      49
+    ],
+    "time_column": "time_s",
+    "waveform_channels": 48,
+    "sampling_hz": 6400.0,
+    "samples_per_cycle_50hz": 128,
+    "episode_duration_s": 1.0,
+    "dt_mean_s": 0.00015625,
+    "nan_cells_inspected": 0,
+    "inf_cells_inspected": 0,
+    "channel_naming_pattern": "Bus_{bus}_Line_{from:02d}_{to:02d}{A|B}_{cur|vol}_L{phase}_{A|V}",
+    "fault_class_mapping": {
+      "0": "LLL",
+      "1": "LL",
+      "2": "SLG",
+      "3": "LLG"
+    },
+    "fault_class_mapping_verified": true,
+    "legend_source": "Companion repo README (https://github.com/julianoelhaf/protect90-dataset) line 113 and dataset README; consistent with local audit notes.",
+    "sc_type_distribution": {
+      "0": 2273,
+      "1": 2251,
+      "2": 2279,
+      "3": 2219
+    },
+    "fault_target_distribution": {
+      "Line_1_2_a": 3191,
+      "Line_1_2_b": 1328,
+      "Line_2_3_a": 3165,
+      "Line_2_3_b": 1338
+    },
+    "phase_select_distribution": {
+      "0": 2963,
+      "1": 2997,
+      "2": 3062
+    },
+    "dataset_doi": "10.5281/zenodo.21109169",
+    "license": "CC BY 4.0",
+    "paper_preprint": "https://arxiv.org/abs/2606.24298",
+    "topology": "90 kV double-line (buses 1-2-3, line sections Line_1_2_a/b, Line_2_3_a/b)",
+    "simulator": "DIgSILENT PowerFactory EMT",
+    "updated_at": "2026-11-04T00:51:00+0530"
+  },
+  "finalized_pipeline": {
+    "label_source": "sc_type from hv_double_line_90kv_labels.csv",
+    "label_mapping": {
+      "0": "LLL",
+      "1": "LL",
+      "2": "SLG",
+      "3": "LLG"
+    },
+    "classes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "split_unit": "episode_id",
+    "split_strategy": "stratified on sc_type, two-stage 70/15/15, seed 42",
+    "split_ratios": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15
+    },
+    "random_seed": 42,
+    "window_size_samples": 256,
+    "window_size_ms": 40.0,
+    "stride_samples": 64,
+    "max_windows_per_episode": 24,
+    "window_budget": {
+      "train": 500000,
+      "validation": 120000,
+      "test": 120000
+    },
+    "fault_alignment": "windows drawn from [t_evnt_start, t_evnt_end]: onset-centred windows first, then stride sweep fully inside the fault span; clamped to episode bounds; episode windows inherit episode sc_type label; per-episode cap enforced",
+    "window_placement_correction": "Original sampler placed ~98% of windows in pre-fault steady state (mean fault coverage 0.021). Corrected to fault-interval placement; window size/stride/cap and episode splits unchanged. Evidence: window_signal_diagnostic.json",
+    "channels": "all 48 waveform channels across 8 measurement locations; channel order = sorted column names; no silent discards",
+    "normalization": "per-channel z-score, fit on train windows only, applied to val/test",
+    "storage": "raw binary .x.bin/.y.bin with headers to avoid full in-memory split arrays",
+    "no_silent_zero_fill": true,
+    "leakage_prevention": "split on episode IDs before windowing; all windows of an episode stay in one split",
+    "intent": "small supervised window classifier over fault episodes; windows are episode instances, not independent events",
+    "realization": {
+      "train_windows": 105728,
+      "validation_windows": 22908,
+      "test_windows": 22519,
+      "n_channels": 48,
+      "window_size": 256,
+      "train_dtype": "float32",
+      "train_per_class_counts": {
+        "2": 27061,
+        "3": 26073,
+        "1": 26236,
+        "0": 26358
+      },
+      "validation_per_class_counts": {
+        "2": 5804,
+        "3": 5580,
+        "1": 5764,
+        "0": 5760
+      },
+      "test_per_class_counts": {
+        "0": 5798,
+        "2": 5799,
+        "1": 5499,
+        "3": 5423
+      },
+      "train_budget_limit": 500000,
+      "validation_budget_limit": 120000,
+      "test_budget_limit": 120000,
+      "window_placement": "fault_interval",
+      "mean_fault_coverage": {
+        "train": 0.9642,
+        "validation": 0.9638,
+        "test": 0.9639
+      },
+      "excluded_train_samples": [
+        7154
+      ],
+      "excluded_validation_samples": [],
+      "excluded_test_samples": [],
+      "split_files": {
+        "train_episodes": "preprocessed/train_episodes.csv",
+        "validation_episodes": "preprocessed/validation_episodes.csv",
+        "test_episodes": "preprocessed/test_episodes.csv"
+      },
+      "array_files": {
+        "X_train": "preprocessed/X_train.x.bin",
+        "y_train": "preprocessed/X_train.y.bin",
+        "X_val": "preprocessed/X_val.x.bin",
+        "y_val": "preprocessed/X_val.y.bin",
+        "X_test": "preprocessed/X_test.x.bin",
+        "y_test": "preprocessed/X_test.y.bin",
+        "norm_mean": "preprocessed/norm_mean.npy",
+        "norm_std": "preprocessed/norm_std.npy"
+      },
+      "load_function": "preprocess.load_binny(preprocessed/X_train)"
+    },
+    "availability_note": "Legacy INCOMPLETE fields retained verbatim in dataset.* block; verified realizable state is in finalized_pipeline.*."
+  }
+}
