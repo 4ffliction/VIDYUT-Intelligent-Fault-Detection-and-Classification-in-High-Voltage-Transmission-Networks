@@ -1,0 +1,10 @@
+              precision    recall  f1-score   support
+
+         LLL       1.00      1.00      1.00      5760
+          LL       1.00      1.00      1.00      5764
+         SLG       1.00      1.00      1.00      5804
+         LLG       1.00      1.00      1.00      5580
+
+    accuracy                           1.00     22908
+   macro avg       1.00      1.00      1.00     22908
+weighted avg       1.00      1.00      1.00     22908
