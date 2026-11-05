@@ -1,0 +1,64 @@
+{
+  "experiment": "C: CNN embedding + engineered features -> RF",
+  "accuracy": 0.998908678191025,
+  "macro_precision": 0.998912606001416,
+  "macro_recall": 0.9988984950479414,
+  "macro_f1": 0.9989051232285693,
+  "weighted_f1": 0.9989087474940607,
+  "per_class": {
+    "LLL": {
+      "precision": 0.9975740772829665,
+      "recall": 0.9994791666666667,
+      "f1": 0.9985257132945972,
+      "support": 5760
+    },
+    "LL": {
+      "precision": 1.0,
+      "recall": 0.9993060374739764,
+      "f1": 0.9996528982992017,
+      "support": 5764
+    },
+    "SLG": {
+      "precision": 0.998794350671719,
+      "recall": 0.9991385251550655,
+      "f1": 0.9989664082687338,
+      "support": 5804
+    },
+    "LLG": {
+      "precision": 0.9992819960509782,
+      "recall": 0.9976702508960573,
+      "f1": 0.9984754730517442,
+      "support": 5580
+    }
+  },
+  "confusion_matrix": [
+    [
+      5757,
+      0,
+      0,
+      3
+    ],
+    [
+      4,
+      5760,
+      0,
+      0
+    ],
+    [
+      4,
+      0,
+      5799,
+      1
+    ],
+    [
+      6,
+      0,
+      7,
+      5567
+    ]
+  ],
+  "classification_report": "              precision    recall  f1-score   support\n\n         LLL       1.00      1.00      1.00      5760\n          LL       1.00      1.00      1.00      5764\n         SLG       1.00      1.00      1.00      5804\n         LLG       1.00      1.00      1.00      5580\n\n    accuracy                           1.00     22908\n   macro avg       1.00      1.00      1.00     22908\nweighted avg       1.00      1.00      1.00     22908\n",
+  "mean_confidence": null,
+  "training_subset_windows": 16384,
+  "seed": 42
+}

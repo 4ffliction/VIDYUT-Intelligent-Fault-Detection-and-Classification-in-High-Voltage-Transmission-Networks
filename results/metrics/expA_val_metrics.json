@@ -1,0 +1,64 @@
+{
+  "experiment": "A: RF on engineered features",
+  "accuracy": 0.9611052907281299,
+  "macro_precision": 0.9607651765057206,
+  "macro_recall": 0.9607998431558942,
+  "macro_f1": 0.9607795618496087,
+  "weighted_f1": 0.9610683664445246,
+  "per_class": {
+    "LLL": {
+      "precision": 0.9977410947002606,
+      "recall": 0.996875,
+      "f1": 0.9973078593139384,
+      "support": 5760
+    },
+    "LL": {
+      "precision": 0.9280250347705146,
+      "recall": 0.9260929909784872,
+      "f1": 0.9270580062521709,
+      "support": 5764
+    },
+    "SLG": {
+      "precision": 0.9857828023295649,
+      "recall": 0.9915575465196417,
+      "f1": 0.9886617419687339,
+      "support": 5804
+    },
+    "LLG": {
+      "precision": 0.9315117742225418,
+      "recall": 0.928673835125448,
+      "f1": 0.9300906398635915,
+      "support": 5580
+    }
+  },
+  "confusion_matrix": [
+    [
+      5742,
+      0,
+      9,
+      9
+    ],
+    [
+      10,
+      5338,
+      46,
+      370
+    ],
+    [
+      2,
+      45,
+      5755,
+      2
+    ],
+    [
+      1,
+      369,
+      28,
+      5182
+    ]
+  ],
+  "classification_report": "              precision    recall  f1-score   support\n\n         LLL       1.00      1.00      1.00      5760\n          LL       0.93      0.93      0.93      5764\n         SLG       0.99      0.99      0.99      5804\n         LLG       0.93      0.93      0.93      5580\n\n    accuracy                           0.96     22908\n   macro avg       0.96      0.96      0.96     22908\nweighted avg       0.96      0.96      0.96     22908\n",
+  "mean_confidence": null,
+  "training_subset_windows": 16384,
+  "seed": 42
+}

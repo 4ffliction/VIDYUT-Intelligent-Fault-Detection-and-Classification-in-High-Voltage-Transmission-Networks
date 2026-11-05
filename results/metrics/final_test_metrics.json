@@ -1,0 +1,65 @@
+{
+  "accuracy": 0.9990230472045828,
+  "macro_precision": 0.9990423121199729,
+  "macro_recall": 0.9990019984946028,
+  "macro_f1": 0.9990215563986589,
+  "weighted_f1": 0.9990228985194384,
+  "per_class": {
+    "LLL": {
+      "precision": 0.9987935194760428,
+      "recall": 0.999482580200069,
+      "f1": 0.9991379310344828,
+      "support": 5798
+    },
+    "LL": {
+      "precision": 0.9994545454545455,
+      "recall": 0.9996362975086379,
+      "f1": 0.9995454132193836,
+      "support": 5499
+    },
+    "SLG": {
+      "precision": 0.9981060606060606,
+      "recall": 0.9996551129505087,
+      "f1": 0.998879986215215,
+      "support": 5799
+    },
+    "LLG": {
+      "precision": 0.9998151229432427,
+      "recall": 0.997234003319196,
+      "f1": 0.9985228951255539,
+      "support": 5423
+    }
+  },
+  "confusion_matrix": [
+    [
+      5795,
+      0,
+      2,
+      1
+    ],
+    [
+      2,
+      5497,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      5797,
+      0
+    ],
+    [
+      3,
+      3,
+      9,
+      5408
+    ]
+  ],
+  "classification_report": "              precision    recall  f1-score   support\n\n         LLL       1.00      1.00      1.00      5798\n          LL       1.00      1.00      1.00      5499\n         SLG       1.00      1.00      1.00      5799\n         LLG       1.00      1.00      1.00      5423\n\n    accuracy                           1.00     22519\n   macro avg       1.00      1.00      1.00     22519\nweighted avg       1.00      1.00      1.00     22519\n",
+  "mean_confidence": 0.9987561106681824,
+  "experiment": "B: compact 1D CNN",
+  "selection": "selected on validation macro F1",
+  "training_subset_windows": 16384,
+  "seed": 42
+}

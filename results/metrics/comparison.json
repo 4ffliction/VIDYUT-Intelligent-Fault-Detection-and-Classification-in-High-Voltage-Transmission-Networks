@@ -1,0 +1,50 @@
+{
+  "protocol": {
+    "subset_windows": 16384,
+    "train_windows_available": 105728,
+    "subset_seed": 42,
+    "validation_windows": 22908,
+    "test_windows": 22519,
+    "test_evaluations": "selected model only",
+    "classes": [
+      "LLL",
+      "LL",
+      "SLG",
+      "LLG"
+    ]
+  },
+  "validation_comparison": [
+    {
+      "experiment": "A: RF on engineered features",
+      "val_accuracy": 0.9611052907281299,
+      "val_macro_precision": 0.9607651765057206,
+      "val_macro_recall": 0.9607998431558942,
+      "val_macro_f1": 0.9607795618496087,
+      "selected": false
+    },
+    {
+      "experiment": "B: compact 1D CNN",
+      "val_accuracy": 0.9991705954251789,
+      "val_macro_precision": 0.9991730404593069,
+      "val_macro_recall": 0.9991606645474239,
+      "val_macro_f1": 0.9991666483861087,
+      "selected": true
+    },
+    {
+      "experiment": "C: CNN embedding + engineered features -> RF",
+      "val_accuracy": 0.998908678191025,
+      "val_macro_precision": 0.998912606001416,
+      "val_macro_recall": 0.9988984950479414,
+      "val_macro_f1": 0.9989051232285693,
+      "selected": false
+    }
+  ],
+  "selected_model": "B: compact 1D CNN",
+  "test": {
+    "experiment": "B: compact 1D CNN",
+    "accuracy": 0.9990230472045828,
+    "macro_precision": 0.9990423121199729,
+    "macro_recall": 0.9990019984946028,
+    "macro_f1": 0.9990215563986589
+  }
+}
