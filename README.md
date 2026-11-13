@@ -63,7 +63,7 @@ splits. The split CSVs (`preprocessed/*_episodes.csv`) are reused verbatim by
 
 ## 4. Models
 
-**A — Random Forest on engineered features (192-D).** Per window and channel:
+**A - Random Forest on engineered features (192-D).** Per window and channel:
 RMS, standard deviation, peak-to-peak, max absolute amplitude (48 × 4). These
 are computed in **physical units** by inverting the saved z-score
 (`x = z·std + mean`), so the numbers are amperes/volts as the names imply.
@@ -72,13 +72,13 @@ features are equivalent (0.9537 vs 0.9546 macro F1), so this choice costs
 nothing and buys interpretability. RF: 400 trees, `min_samples_leaf=2`,
 `class_weight="balanced"`, seed 42.
 
-**B — Compact 1D CNN (37,316 parameters).** Conv1d(48→32, k5) → BN → ReLU →
+**B - Compact 1D CNN (37,316 parameters).** Conv1d(48→32, k5) → BN → ReLU →
 MaxPool2 → Conv1d(32→64, k5) → BN → ReLU → MaxPool2 → Conv1d(64→96, k3) → BN →
 ReLU → global average pool → linear(96→4). AdamW, lr 1e-3, weight decay 1e-4,
 batch 128, `ReduceLROnPlateau`, max 20 epochs, early stopping on **validation
 loss** (patience 5), best-validation-loss checkpoint kept.
 
-**C — Hybrid.** 96-D CNN embedding (from B's best validation checkpoint) ⊕
+**C - Hybrid.** 96-D CNN embedding (from B's best validation checkpoint) ⊕
 192 engineered features = 288-D → Random Forest (same settings as A).
 
 **Training subset.** All three experiments train on the same fixed-seed
