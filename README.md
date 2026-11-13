@@ -1,4 +1,4 @@
-# VIDYUT-KAVACHA — CNN + Random Forest hybrid for PROTECT-90 fault classification
+# VIDYUT-KAVACHA - CNN + Random Forest hybrid for PROTECT-90 fault classification
 
 Four-class fault classification (LLL, LL, SLG, LLG) on the PROTECT-90 90 kV
 double-circuit line dataset, comparing:
